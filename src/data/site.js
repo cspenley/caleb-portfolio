@@ -14,7 +14,7 @@ export const site = {
   email: "cpenley@umd.edu",
   linkedin: "https://www.linkedin.com/in/caleb-penley",
   github: "https://github.com/",
-  resumeUrl: "/Caleb Penley Resume.pdf", // Replace public/resume.pdf with your file.
+  resumeUrl: "/caleb-penley-resume.pdf", // Replace public/resume.pdf with your file.
   navLinks: [
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
