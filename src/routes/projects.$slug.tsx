@@ -70,7 +70,13 @@ function ProjectPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
           <div className="absolute inset-0 flex items-end">
             <div className="mx-auto w-full max-w-[var(--container)] px-6 pb-12">
-              <Link to="/" className="label-mono hover:text-foreground">← Back</Link>
+              <Link
+                to="/"
+                hash="projects"
+                className="label-mono inline-flex items-center gap-2 border border-border bg-background/70 px-4 py-2 text-foreground backdrop-blur-sm transition-colors hover:border-accent-red hover:text-accent-red"
+              >
+                ← Back to projects
+              </Link>
               <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">{project.title}</h1>
               <p className="mt-3 max-w-2xl text-lg text-muted">{project.tagline}</p>
               <div className="mt-6 flex flex-wrap gap-2">

@@ -73,3 +73,11 @@
   text-transform: uppercase;
   color: var(--muted);
 }
+
+/* Hide scrollbars on horizontal scrollers (e.g. the Projects rail). */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
