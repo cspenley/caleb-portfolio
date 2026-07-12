@@ -12,7 +12,7 @@ export const projects = [
     slug: "fsae-bellcranks",
     title: "FSAE Bellcranks",
     tagline: "Suspension actuation redesign for Terps Racing.",
-    cover: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?w=1600&q=80",
+    cover: "public/images/projects/FSAE Bellcranks/At Comp.PNG",
     tech: ["SolidWorks", "FEA", "CNC Machining", "Aluminum 7075"],
     overview:
       "Redesigned front and rear bellcranks for the 2026 Formula SAE car to reduce mass while maintaining a target factor of safety under peak cornering load.",
@@ -34,13 +34,16 @@ export const projects = [
     ],
     lessons:
       "Topology optimization is a starting point, not the answer. Manufacturing constraints shaped the final geometry more than the FEA did.",
-    gallery: [],
+    gallery: [
+      "public/images/projects/FSAE Bellcranks/IMG_7297.PNG",
+      "public/images/projects/FSAE Bellcranks/TR25 FBC AB Drawing.PNG",
+    ],
   },
   {
     slug: "mbusi-trailer-hitch-tool",
     title: "MBUSI Trailer Hitch Tool",
     tagline: "Ergonomic assembly fixture for the GLE production line.",
-    cover: "https://images.unsplash.com/photo-1581092918484-8313e0f8f9b3?w=1600&q=80",
+    cover: "public/images/projects/MBUSI Trailer Hitch/Hitch Front.PNG",
     tech: ["CATIA V5", "Sheet Metal", "Pneumatics", "Ergonomics"],
     overview:
       "Designed a line-side tool that reduced operator strain when installing the trailer hitch subassembly on the Mercedes-Benz GLE.",
@@ -68,7 +71,7 @@ export const projects = [
     slug: "mbusi-can-tool-restructure",
     title: "MBUSI CAN Tool Process Restructure",
     tagline: "Rebuilt the diagnostic workflow for end-of-line vehicle testing.",
-    cover: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1600&q=80",
+    cover: "public/images/projects/MBUSI CAN Process Restructure/CAN Restructure.png",
     tech: ["CAN Bus", "Python", "Vector CANoe", "Process Design"],
     overview:
       "Restructured the end-of-line CAN diagnostic process to cut redundant test steps and standardize how failures were escalated.",
@@ -96,7 +99,7 @@ export const projects = [
     slug: "senior-capstone",
     title: "Senior Capstone Project",
     tagline: "Year-long interdisciplinary design project.",
-    cover: "https://images.unsplash.com/photo-1581091012184-5c58aa0f0f4b?w=1600&q=80",
+    cover: "public/images/projects/Capstone/Group.jpg",
     tech: ["SolidWorks", "Prototyping", "Team Lead", "Testing"],
     overview:
       "Senior capstone project bringing together mechanical design, analysis, and manufacturing into a single year-long deliverable.",

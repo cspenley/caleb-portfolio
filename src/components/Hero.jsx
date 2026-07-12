@@ -31,10 +31,10 @@ export default function Hero() {
               View projects →
             </a>
             <a
-              href={site.resumeUrl}
+              href={site.resumeUrl} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-foreground"
             >
-              Download résumé
+              Download resume
             </a>
           </div>
         </motion.div>
@@ -57,7 +57,7 @@ export default function Hero() {
           <div className="absolute inset-0 border border-border" />
           <div className="absolute -right-3 -top-3 h-full w-full border border-accent-red/50" />
           <img
-            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80"
+            src="public/images/BW Profile.jpg"
             alt="Caleb Penley"
             className="relative h-full w-full object-cover grayscale"
           />
