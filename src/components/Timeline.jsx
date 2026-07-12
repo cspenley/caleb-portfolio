@@ -39,6 +39,20 @@ export default function Timeline() {
                   </li>
                 ))}
               </ul>
+
+              {/* Gallery — only renders if this entry has images. */}
+              {job.gallery && job.gallery.length > 0 && (
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {job.gallery.map((src, k) => (
+                    <img
+                    key={k}
+                    src={src}
+                    alt=""
+                    className="h-64 w-auto border border-border object-contain"
+                    />
+                    ))}
+                    </div>
+                  )}
             </motion.li>
           ))}
         </ol>

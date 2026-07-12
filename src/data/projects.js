@@ -5,6 +5,14 @@
 //   2. Give it a unique `slug` (used in the URL).
 //   3. Fill in the fields. Leave any array empty if you don't have content yet.
 //   4. Save. The site rebuilds automatically.
+//
+// SECTION IMAGES (new):
+//   Each of overview / problem / process / solution / lessons has an
+//   optional matching "...Image" field (e.g. overviewImage). Fill one in
+//   with an image path and that section renders as image + text side by
+//   side; leave it "" (empty string) and it stays text-only, same as before.
+//   The side (left/right) alternates automatically between whichever
+//   sections actually have an image — you don't set that yourself.
 // ============================================================
 
 export const projects = [
@@ -16,8 +24,10 @@ export const projects = [
     tech: ["SolidWorks", "FEA", "CNC Machining", "Aluminum 7075"],
     overview:
       "Redesigned front and rear bellcranks for the 2026 Formula SAE car to reduce mass while maintaining a target factor of safety under peak cornering load.",
+    overviewImage: "",
     problem:
       "The previous bellcranks were over-built for the loads they saw, adding unsprung and rotating inertia to the suspension.",
+    problemImage: "",
     constraints: [
       "Factor of safety > 2.0 under 3G bump + cornering",
       "Machinable on 3-axis CNC in a single setup",
@@ -25,8 +35,10 @@ export const projects = [
     ],
     process:
       "Load cases were pulled from Adams Car simulations, translated into SolidWorks Simulation, and iterated across five topology revisions before settling on a pocketed 7075-T6 design.",
+    processImage: "",
     solution:
       "Final part is a pocketed monolithic bellcrank with press-fit bearing races and integrated damper clevis.",
+    solutionImage: "",
     results: [
       "38% mass reduction vs. previous season",
       "FoS 2.4 under worst-case load",
@@ -34,9 +46,9 @@ export const projects = [
     ],
     lessons:
       "Topology optimization is a starting point, not the answer. Manufacturing constraints shaped the final geometry more than the FEA did.",
+    lessonsImage: "",
     gallery: [
-      "/images/projects/FSAE Bellcranks/IMG_7297.PNG",
-      "/images/projects/FSAE Bellcranks/TR25 FBC AB Drawing.PNG",
+,
     ],
   },
   {
@@ -47,8 +59,10 @@ export const projects = [
     tech: ["CATIA V5", "Sheet Metal", "Pneumatics", "Ergonomics"],
     overview:
       "Designed a line-side tool that reduced operator strain when installing the trailer hitch subassembly on the Mercedes-Benz GLE.",
+    overviewImage: "",
     problem:
       "Operators were lifting a ~25 lb subassembly overhead multiple times per shift, creating an ergonomic red-flag on the standard work analysis.",
+    problemImage: "",
     constraints: [
       "Fit within existing station footprint",
       "Cycle time neutral or better",
@@ -56,8 +70,10 @@ export const projects = [
     ],
     process:
       "Time-studied the existing station, prototyped three fixture concepts in CATIA, reviewed with production and safety, then built and iterated on the shop floor.",
+    processImage: "",
     solution:
       "Pneumatically-assisted balancer arm with a custom end effector that locates on two datum pins and clamps the hitch bracket.",
+    solutionImage: "",
     results: [
       "Ergonomic score moved from red to green",
       "Cycle time reduced by 6 seconds per unit",
@@ -65,6 +81,7 @@ export const projects = [
     ],
     lessons:
       "Operators know more about the station than any drawing does. Every fixture I shipped got better after the first shift of feedback.",
+    lessonsImage: "",
     gallery: [],
   },
   {
@@ -75,8 +92,10 @@ export const projects = [
     tech: ["CAN Bus", "Python", "Vector CANoe", "Process Design"],
     overview:
       "Restructured the end-of-line CAN diagnostic process to cut redundant test steps and standardize how failures were escalated.",
+    overviewImage: "",
     problem:
       "The existing CAN tooling workflow had grown organically over years — steps were duplicated across stations and failures took multiple hand-offs to resolve.",
+    problemImage: "",
     constraints: [
       "No changes to certified test coverage",
       "Rollout with no line stop",
@@ -84,8 +103,10 @@ export const projects = [
     ],
     process:
       "Mapped the current process, interviewed operators and engineers on every shift, identified redundant reads, and rewrote the standard work.",
+    processImage: "",
     solution:
       "Consolidated 14 diagnostic steps into 9, added a single escalation path, and wrote Python helpers for the two most common failure modes.",
+    solutionImage: "",
     results: [
       "~30% reduction in average diagnostic time",
       "Fewer repeat visits from the same vehicle",
@@ -93,6 +114,7 @@ export const projects = [
     ],
     lessons:
       "Process work is engineering. The tool didn't change — how people used it did, and that was the whole win.",
+    lessonsImage: "",
     gallery: [],
   },
   {
@@ -103,8 +125,10 @@ export const projects = [
     tech: ["SolidWorks", "Prototyping", "Team Lead", "Testing"],
     overview:
       "Senior capstone project bringing together mechanical design, analysis, and manufacturing into a single year-long deliverable.",
+    overviewImage: "/images/projects/capstone/umd.png",
     problem:
       "Placeholder problem statement — replace with the real capstone problem once the team scope is locked in.",
+    problemImage: "",
     constraints: [
       "Budget cap set by the department",
       "Deliverable demo at end-of-year showcase",
@@ -112,14 +136,17 @@ export const projects = [
     ],
     process:
       "Placeholder process description. Update with concept selection, CAD iteration, and testing milestones as the project progresses.",
+    processImage: "",
     solution:
       "Placeholder solution description — swap in the final design once built.",
+    solutionImage: "",
     results: [
       "Placeholder result 1",
       "Placeholder result 2",
     ],
     lessons:
       "Placeholder lessons — fill in after the final review.",
+    lessonsImage: "",
     gallery: [],
   },
 ];

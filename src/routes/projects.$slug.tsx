@@ -35,6 +35,8 @@ export const Route = createFileRoute("/projects/$slug")({
   component: ProjectPage,
 });
 
+// Text-only section (used for Constraints / Results, which are lists —
+// and as the automatic fallback for any MediaSection given no image).
 function Section({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (
     <div className="grid gap-6 border-t border-border py-12 md:grid-cols-[1fr_2fr]">
@@ -47,10 +49,75 @@ function Section({ label, title, children }: { label: string; title: string; chi
   );
 }
 
+// Image + text section. Pass `image` to get the alternating side-by-side
+// layout; leave it undefined/empty and this renders identically to <Section>.
+// `side` is "left" | "right" | undefined — computed by the caller so the
+// alternation only counts sections that actually have an image.
+function MediaSection({
+  label,
+  title,
+  image,
+  imageAlt,
+  side,
+  children,
+}: {
+  label: string;
+  title: string;
+  image?: string;
+  imageAlt?: string;
+  side?: "left" | "right";
+  children: ReactNode;
+}) {
+  if (!image) {
+    return (
+      <Section label={label} title={title}>
+        {children}
+      </Section>
+    );
+  }
+
+  const imageFirst = side === "left";
+
+  return (
+    <div className="grid gap-10 border-t border-border py-16 md:grid-cols-2 md:items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5 }}
+        className={imageFirst ? "md:order-1" : "md:order-2"}
+      >
+        {/* PHOTO SIZE: aspect-[4/3] controls the crop ratio below. */}
+        <img
+          src={image}
+          alt={imageAlt || title}
+          className="aspect-[4/3] w-full border border-border object-cover"
+        />
+      </motion.div>
+      <div className={imageFirst ? "md:order-2" : "md:order-1"}>
+        <p className="label-mono text-accent-red">{label}</p>
+        <h2 className="mt-3 text-2xl font-semibold tracking-tight">{title}</h2>
+        {/* TEXTBOX SIZE/TYPE: text-lg leading-relaxed below. */}
+        <div className="mt-4 text-lg leading-relaxed text-muted">{children}</div>
+      </div>
+    </div>
+  );
+}
+
 function ProjectPage() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
+
+  // Alternates left/right, but only advances for sections that actually
+  // have an image — sections without one don't break the rhythm.
+  let sideCounter = 0;
+  const sideFor = (hasImage: boolean): "left" | "right" | undefined => {
+    if (!hasImage) return undefined;
+    const side = sideCounter % 2 === 0 ? "left" : "right";
+    sideCounter += 1;
+    return side;
+  };
 
   return (
     <div className="min-h-screen">
@@ -92,13 +159,23 @@ function ProjectPage() {
 
         {/* Body */}
         <div className="mx-auto max-w-[var(--container)] px-6 py-16">
-          <Section label="Overview" title="What it is">
+          <MediaSection
+            label="Overview"
+            title="What it is"
+            image={project.overviewImage}
+            side={sideFor(!!project.overviewImage)}
+          >
             <p>{project.overview}</p>
-          </Section>
+          </MediaSection>
 
-          <Section label="Problem" title="What we were solving">
+          <MediaSection
+            label="Problem"
+            title="What we were solving"
+            image={project.problemImage}
+            side={sideFor(!!project.problemImage)}
+          >
             <p>{project.problem}</p>
-          </Section>
+          </MediaSection>
 
           <Section label="Constraints" title="Boundaries of the design">
             <ul className="space-y-2">
@@ -111,13 +188,23 @@ function ProjectPage() {
             </ul>
           </Section>
 
-          <Section label="Process" title="How I got there">
+          <MediaSection
+            label="Process"
+            title="How I got there"
+            image={project.processImage}
+            side={sideFor(!!project.processImage)}
+          >
             <p>{project.process}</p>
-          </Section>
+          </MediaSection>
 
-          <Section label="Solution" title="What I shipped">
+          <MediaSection
+            label="Solution"
+            title="What I shipped"
+            image={project.solutionImage}
+            side={sideFor(!!project.solutionImage)}
+          >
             <p>{project.solution}</p>
-          </Section>
+          </MediaSection>
 
           <Section label="Results" title="Outcomes">
             <ul className="space-y-2">
@@ -130,9 +217,14 @@ function ProjectPage() {
             </ul>
           </Section>
 
-          <Section label="Lessons" title="What I'd do differently">
+          <MediaSection
+            label="Lessons"
+            title="What I'd do differently"
+            image={project.lessonsImage}
+            side={sideFor(!!project.lessonsImage)}
+          >
             <p>{project.lessons}</p>
-          </Section>
+          </MediaSection>
 
           {/* Gallery */}
           {project.gallery && project.gallery.length > 0 && (
