@@ -49,8 +49,7 @@ export const projects = [
     lessons:
       "Topology optimization is a starting point, not the answer. Manufacturing constraints shaped the final geometry more than the FEA did.",
     lessonsImage: "/images/projects/fsae-bellcranks/topology.png",
-    gallery: [
-,
+    gallery: ["/videos/projects/fsae-bellcranks/testing.mp4", "/videos/projects/fsae-bellcranks/testing-2.mp4", "/videos/projects/fsae-bellcranks/testing-3.mp4"
     ],
   },
   {

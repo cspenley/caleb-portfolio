@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { projects, getProject } from "../data/projects";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Media from "../components/Media";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -35,8 +36,8 @@ export const Route = createFileRoute("/projects/$slug")({
   component: ProjectPage,
 });
 
-// Text-only section (used for Constraints / Results, which are lists —
-// and as the automatic fallback for any MediaSection given no image).
+// Text-only section (used as the automatic fallback for any MediaSection
+// given no image).
 function Section({ label, title, children }: { label: string; title: string; children: ReactNode }) {
   return (
     <div className="grid gap-6 border-t border-border py-12 md:grid-cols-[1fr_2fr]">
@@ -49,10 +50,12 @@ function Section({ label, title, children }: { label: string; title: string; chi
   );
 }
 
-// Image + text section. Pass `image` to get the alternating side-by-side
-// layout; leave it undefined/empty and this renders identically to <Section>.
-// `side` is "left" | "right" | undefined — computed by the caller so the
-// alternation only counts sections that actually have an image.
+// Image/video + text section. Pass `image` to get the alternating
+// side-by-side layout; leave it undefined/empty and this renders
+// identically to <Section>. `side` is "left" | "right" | undefined —
+// computed by the caller so the alternation only counts sections that
+// actually have media. `image` can be a photo path or an .mp4 path —
+// <Media> decides which tag to render.
 function MediaSection({
   label,
   title,
@@ -87,11 +90,11 @@ function MediaSection({
         transition={{ duration: 0.5 }}
         className={imageFirst ? "md:order-1" : "md:order-2"}
       >
-        {/* PHOTO SIZE: aspect-[4/3] controls the crop ratio below. */}
-        <img
-        src={image}
-        alt={imageAlt || title}
-        className="max-h-[500px] max-w-full border border-border object-contain"
+        {/* MEDIA SIZE: max-h-[500px] controls how tall this can get. */}
+        <Media
+          src={image}
+          alt={imageAlt || title}
+          className="max-h-[500px] max-w-full border border-border object-contain"
         />
       </motion.div>
       <div className={imageFirst ? "md:order-2" : "md:order-1"}>
@@ -110,7 +113,7 @@ function ProjectPage() {
   const next = projects[(idx + 1) % projects.length];
 
   // Alternates left/right, but only advances for sections that actually
-  // have an image — sections without one don't break the rhythm.
+  // have media — sections without one don't break the rhythm.
   let sideCounter = 0;
   const sideFor = (hasImage: boolean): "left" | "right" | undefined => {
     if (!hasImage) return undefined;
@@ -178,20 +181,20 @@ function ProjectPage() {
           </MediaSection>
 
           <MediaSection
-          label="Constraints"
-          title="Boundaries of the design"
-          image={project.constraintsImage}
-          side={sideFor(!!project.constraintsImage)}
+            label="Constraints"
+            title="Boundaries of the design"
+            image={project.constraintsImage}
+            side={sideFor(!!project.constraintsImage)}
           >
             <ul className="space-y-2">
-              {project.constraints.map((c, i) => (
+              {project.constraints.map((c: string, i: number) => (
                 <li key={i} className="flex gap-3">
                   <span className="text-accent-blue">—</span>
                   <span>{c}</span>
-                  </li>
-                ))}
-                </ul>
-                </MediaSection>
+                </li>
+              ))}
+            </ul>
+          </MediaSection>
 
           <MediaSection
             label="Process"
@@ -212,20 +215,20 @@ function ProjectPage() {
           </MediaSection>
 
           <MediaSection
-          label="Results"
-          title="Outcomes"
-          image={project.resultsImage}
-          side={sideFor(!!project.resultsImage)}
+            label="Results"
+            title="Outcomes"
+            image={project.resultsImage}
+            side={sideFor(!!project.resultsImage)}
           >
             <ul className="space-y-2">
-              {project.results.map((r, i) => (
+              {project.results.map((r: string, i: number) => (
                 <li key={i} className="flex gap-3">
                   <span className="text-accent-red">→</span>
                   <span>{r}</span>
-                  </li>
-                ))}
-                </ul>
-                </MediaSection>
+                </li>
+              ))}
+            </ul>
+          </MediaSection>
 
           <MediaSection
             label="Lessons"
@@ -236,13 +239,13 @@ function ProjectPage() {
             <p>{project.lessons}</p>
           </MediaSection>
 
-          {/* Gallery */}
+          {/* Gallery — each entry can be a photo or an .mp4 path */}
           {project.gallery && project.gallery.length > 0 && (
             <div className="border-t border-border py-12">
               <p className="label-mono text-accent-red">Gallery</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {project.gallery.map((src: string, i: number) => (
-                  <img key={i} src={src} alt="" className="aspect-[4/3] w-full object-cover" />
+                  <Media key={i} src={src} alt="" className="aspect-[4/3] w-full object-cover" />
                 ))}
               </div>
             </div>
