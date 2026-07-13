@@ -89,9 +89,9 @@ function MediaSection({
       >
         {/* PHOTO SIZE: aspect-[4/3] controls the crop ratio below. */}
         <img
-          src={image}
-          alt={imageAlt || title}
-          className="aspect-[4/3] w-full border border-border object-cover"
+        src={image}
+        alt={imageAlt || title}
+        className="max-h-[500px] max-w-full border border-border object-contain"
         />
       </motion.div>
       <div className={imageFirst ? "md:order-2" : "md:order-1"}>
@@ -177,16 +177,21 @@ function ProjectPage() {
             <p>{project.problem}</p>
           </MediaSection>
 
-          <Section label="Constraints" title="Boundaries of the design">
+          <MediaSection
+          label="Constraints"
+          title="Boundaries of the design"
+          image={project.constraintsImage}
+          side={sideFor(!!project.constraintsImage)}
+          >
             <ul className="space-y-2">
-              {project.constraints.map((c: string, i: number) => (
+              {project.constraints.map((c, i) => (
                 <li key={i} className="flex gap-3">
                   <span className="text-accent-blue">—</span>
                   <span>{c}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
+                  </li>
+                ))}
+                </ul>
+                </MediaSection>
 
           <MediaSection
             label="Process"
@@ -206,16 +211,21 @@ function ProjectPage() {
             <p>{project.solution}</p>
           </MediaSection>
 
-          <Section label="Results" title="Outcomes">
+          <MediaSection
+          label="Results"
+          title="Outcomes"
+          image={project.resultsImage}
+          side={sideFor(!!project.resultsImage)}
+          >
             <ul className="space-y-2">
-              {project.results.map((r: string, i: number) => (
+              {project.results.map((r, i) => (
                 <li key={i} className="flex gap-3">
                   <span className="text-accent-red">→</span>
                   <span>{r}</span>
-                </li>
-              ))}
-            </ul>
-          </Section>
+                  </li>
+                ))}
+                </ul>
+                </MediaSection>
 
           <MediaSection
             label="Lessons"

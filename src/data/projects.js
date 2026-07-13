@@ -27,26 +27,28 @@ export const projects = [
     overviewImage: "",
     problem:
       "The previous bellcranks were over-built for the loads they saw, adding unsprung and rotating inertia to the suspension.",
-    problemImage: "",
+    problemImage: "/images/projects/fsae-bellcranks/old-fbc.jpg",
     constraints: [
       "Factor of safety > 2.0 under 3G bump + cornering",
       "Machinable on 3-axis CNC in a single setup",
       "Interface with existing pushrod and damper geometry",
     ],
+    constraintsImage: "/images/projects/fsae-bellcranks/lotus-graph.png",
     process:
       "Load cases were pulled from Adams Car simulations, translated into SolidWorks Simulation, and iterated across five topology revisions before settling on a pocketed 7075-T6 design.",
-    processImage: "",
+    processImage: "/images/projects/fsae-bellcranks/fbc-fea-fos.png",
     solution:
       "Final part is a pocketed monolithic bellcrank with press-fit bearing races and integrated damper clevis.",
-    solutionImage: "",
+    solutionImage: "/images/projects/fsae-bellcranks/fbc-cad.png",
     results: [
       "38% mass reduction vs. previous season",
       "FoS 2.4 under worst-case load",
       "Reduced setup time on the CNC by ~40%",
     ],
+    resultsImage: "/images/projects/fsae-bellcranks/fbc-car-3.jpg",
     lessons:
       "Topology optimization is a starting point, not the answer. Manufacturing constraints shaped the final geometry more than the FEA did.",
-    lessonsImage: "",
+    lessonsImage: "/images/projects/fsae-bellcranks/topology.png",
     gallery: [
 ,
     ],
