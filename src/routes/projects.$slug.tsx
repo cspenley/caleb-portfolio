@@ -15,12 +15,12 @@ export const Route = createFileRoute("/projects/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.project.title} — Caleb Penley` },
-          { name: "description", content: loaderData.project.tagline },
-          { property: "og:title", content: loaderData.project.title },
-          { property: "og:description", content: loaderData.project.tagline },
-          { property: "og:image", content: loaderData.project.cover },
-        ]
+        { title: `${loaderData.project.title} — Caleb Penley` },
+        { name: "description", content: loaderData.project.tagline },
+        { property: "og:title", content: loaderData.project.title },
+        { property: "og:description", content: loaderData.project.tagline },
+        { property: "og:image", content: loaderData.project.cover },
+      ]
       : [],
   }),
   notFoundComponent: () => (
@@ -173,7 +173,7 @@ function ProjectPage() {
 
           <MediaSection
             label="Problem"
-            title="What we were solving"
+            title="What I was solving"
             image={project.problemImage}
             side={sideFor(!!project.problemImage)}
           >
@@ -207,7 +207,7 @@ function ProjectPage() {
 
           <MediaSection
             label="Solution"
-            title="What I shipped"
+            title="What I completed"
             image={project.solutionImage}
             side={sideFor(!!project.solutionImage)}
           >
@@ -220,14 +220,36 @@ function ProjectPage() {
             image={project.resultsImage}
             side={sideFor(!!project.resultsImage)}
           >
-            <ul className="space-y-2">
-              {project.results.map((r: string, i: number) => (
-                <li key={i} className="flex gap-3">
-                  <span className="text-accent-red">→</span>
-                  <span>{r}</span>
-                </li>
-              ))}
-            </ul>
+            {project.results.length > 0 &&
+              typeof project.results[0] === "string" ? (
+              <ul className="space-y-2">
+                {project.results.map((r: string, i: number) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="text-accent-red">→</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="space-y-8">
+                {project.results.map((group: any, i: number) => (
+                  <div key={i}>
+                    <h3 className="mb-3 text-xl font-semibold">
+                      {group.heading}
+                    </h3>
+
+                    <ul className="space-y-2">
+                      {group.items.map((item: string, j: number) => (
+                        <li key={j} className="flex gap-3">
+                          <span className="text-accent-red">→</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
           </MediaSection>
 
           <MediaSection
@@ -236,7 +258,9 @@ function ProjectPage() {
             image={project.lessonsImage}
             side={sideFor(!!project.lessonsImage)}
           >
-            <p>{project.lessons}</p>
+            <p className="whitespace-pre-line">
+              {project.lessons}
+            </p>
           </MediaSection>
 
           {/* Gallery — each entry can be a photo or an .mp4 path */}
