@@ -12,7 +12,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           <p className="label-mono mb-6">
-            <span className="text-accent-red">/</span> Portfolio — 2026
+            <span className="text-accent-red">/</span> Engineering Portfolio
           </p>
           <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
             {site.name}.

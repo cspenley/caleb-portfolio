@@ -95,7 +95,6 @@ export const projects = [
       "Cut attachment’s per-unit cost from $11,800 to $3,600 (70%) and lead time from 10 to 2 weeks (80%) by designing in-house instead of paying supplier design fees",
     ],
     resultsImage: "/images/projects/mbusi-hitch/hitch-test.png",
-
     lessons:
       "Finishing the prototype isn't finishing the job. I got pulled onto other projects toward the end of my co-op term and let implementation slide. In my last week, a trailer hitch came loose and swung into a team member, hitting their shoulder. They were okay, but the incident happened after the fix already existed and just hadn't been rolled out. Lesson: implement as fast as the solution allows, because a working prototype sitting on a shelf is no good. \n\nAlso, sometimes the real fix isn't the one you're building. The trailer hitch gets hand-tightened at the start of the assembly line and torqued down at the end, because there's no room early on for a high-torque assist device. That sequence is the actual root cause, and my tool is a band-aid, not a cure. I recommended to my manager that the process get restructured so the hitch is torqued down early instead of late. That's expensive and disruptive, but it's in progress as the plant expansion is currently under construction.",
     lessonsImage: "/images/projects/mbusi-hitch/melted-gear.png",
@@ -108,29 +107,28 @@ export const projects = [
     cover: "/images/projects/mbusi-can-process/on-line.png",
     tech: ["CAN Bus", "Python", "Vector CANoe", "Process Design"],
     overview:
-      "Restructured the end-of-line CAN diagnostic process to cut redundant test steps and standardize how failures were escalated.",
+      "Cross-team process restructuring aimed at bringing an overloaded station back down to a sustainable utilization rate.",
     overviewImage: "",
     problem:
-      "The existing CAN tooling workflow had grown organically over years — steps were duplicated across stations and failures took multiple hand-offs to resolve.",
+      "A new vehicle model launch pushed the CAN-tool window-up/window-down station to 115% utilization, unsustainable for the team members working it",
     problemImage: "/images/projects/mbusi-can-process/can-flow.png",
     constraints: [
-      "No changes to certified test coverage",
-      "Rollout with no line stop",
-      "Training material for three shifts",
+      "Coordinate the fix across R&D, electrical, production, and series planning without disrupting an active launch",
+      "Hard time window: the new model was only running at 5 cars a week for 3 weeks, so every idea had to be tested and validated inside that window or it missed its shot",
     ],
     process:
-      "Mapped the current process, interviewed operators and engineers on every shift, identified redundant reads, and rewrote the standard work.",
+      "Ran trials on proposed restructurings and timed each one using video for accurate timestamps, then compared the data across trials. Met with R&D to understand why the new model's CAN-tool connection to the door's ECU took longer than the previous model's, and negotiated whether the new tool's added features were worth the extra time they cost. Managed contractors relocating overhead rails, lighting, and fans to extend the CAN tool's reach, which let the process split across two stations: one to attach the tool, one to remove it.",
     processImage: "",
     solution:
-      "Consolidated 14 diagnostic steps into 9, added a single escalation path, and wrote Python helpers for the two most common failure modes.",
+      "Splitting the connection process across two stations, made possible by the extended overhead rail reach, absorbed the extra connection time the new model's ECU required without adding headcount.",
     solutionImage: "",
     results: [
-      "~30% reduction in average diagnostic time",
-      "Fewer repeat visits from the same vehicle",
-      "Adopted as the standard across the plant",
+      "Utilization dropped from 115% to 97%",
+      "Gained direct experience mapping five teams' competing constraints and building a solution that worked for everyone",
     ],
+    resultsImage: "/images/projects/mbusi-can-process/util.png",
     lessons:
-      "Process work is engineering. The tool didn't change — how people used it did, and that was the whole win.",
+      "You can't make everyone happy, and trying to is how you end up with no solution at all. Working across that many teams with different goals means someone always has an issue with whatever you propose. We went through several ideas, and each one upset a different team for a different reason. The job wasn't finding an idea everyone loved, it was finding the one everyone could live with.",
     lessonsImage: "",
     gallery: [],
   },
@@ -141,28 +139,44 @@ export const projects = [
     cover: "/images/projects/capstone/group.jpg",
     tech: ["SolidWorks", "Prototyping", "Team Lead", "Testing"],
     overview:
-      "Senior capstone project bringing together mechanical design, analysis, and manufacturing into a single year-long deliverable.",
+      "A one-semester capstone covering problem definition, concept development, prototyping, full parametric design, testing, and a final presentation to a judging panel.",
     overviewImage: "/images/projects/capstone/umd.png",
+    myRole:
+      "Owned the leg-lift subsystem. The team landed on an inflatable bladder as the concept; I took it from there.",
+    myRoleBullets: [
+      "Prototyped with hand-pump wedge bags and heat-sealed trash bags to nail down feasibility and confirm the bladder's shape and size",
+      "Calculated the inflation height needed to lift a 95th-percentile male's legs 6 inches and checked that against physical test data",
+      "Ran a materials analysis in ANSYS to select the bladder material",
+      "Designed and manufactured (in SOLIDWORKS) the clamp that attaches the bladder to the swivel seat",
+      "Built the final air bladder used in the Design Expo presentation",
+    ],
+    myRoleImage: "",
     problem:
-      "Placeholder problem statement — replace with the real capstone problem once the team scope is locked in.",
+      "Existing stand-assist devices are built for in-home use. Sedans' low seat height puts elderly users at a mechanical disadvantage when standing, and nothing on the market addressed vehicle egress without requiring a permanent modification to the car.",
     problemImage: "",
     constraints: [
-      "Budget cap set by the department",
-      "Deliverable demo at end-of-year showcase",
-      "Must integrate work from all four team members",
+      "Raise the user's feet at least 6 inches to clear the door frame",
+      "Fit a 17.32 in. × 16 in. × 2 in. stowed envelope on a Camry seat",
+      "Support up to 300 lb (95th-percentile male)",
+      "Require under 25 lbf from the user to rotate",
+      "Weigh under 15 lb",
+      "Run off a 12V car outlet",
+      "Get the user out of the seat in under 30 seconds"
     ],
     process:
-      "Placeholder process description. Update with concept selection, CAD iteration, and testing milestones as the project progresses.",
+      "Iterated separately on three subsystems, the swivel bearing/base plate, the air bladder, and the cushion, then integrated them into one prototype. Validated with a user swivel pull test, an assisted pull test, and a 47-person lift-clearance test run live at Design Expo.",
     processImage: "",
     solution:
-      "Placeholder solution description — swap in the final design once built.",
+      "A turntable-bearing swivel cushion paired with an inflatable quarter-torus air bladder, powered through the vehicle's 12V outlet and controlled by a single switch.",
     solutionImage: "",
     results: [
-      "Placeholder result 1",
-      "Placeholder result 2",
+      "Cut user rotation force by 47.6% (41.19 to 27.72 lbf average, statistically significant)",
+      "Bladder performance (the subsystem I owned): tested across 47 users, 17 female (5'1–6'0) and 30 male (5'9–6'6), spanning a realistic adult range. Clearance margin, measured as ankle height minus the 5.5 in. door sill, ranged from -0.3 in. to +2.7 in. across all users, with a mean of 1.015 in. and a standard deviation of 0.812 in.",
+      "Final device weighed 14 lb",
+      "Full exit sequence took 45 seconds in testing, almost entirely bladder inflation time on a $5 pump. A higher-quality pump would likely bring that under the 30-second target",
     ],
     lessons:
-      "Placeholder lessons — fill in after the final review.",
+      "There's an engineering design process for a reason. Early on, the team kept skipping to whatever solution sounded most efficient, then finding a flaw in it and starting over. That happened more than once. Once we actually followed the process, defined the problem first, let that definition set the real requirements, then brainstormed a concept against those requirements instead of against our gut, the rest of the semester moved fast. The slow part wasn't the engineering. It was skipping the step that tells you what you're actually engineering for.",
     lessonsImage: "",
     gallery: [],
   },

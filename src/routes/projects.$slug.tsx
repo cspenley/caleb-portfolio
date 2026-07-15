@@ -171,6 +171,26 @@ function ProjectPage() {
             <p>{project.overview}</p>
           </MediaSection>
 
+          {project.myRole && (
+            <MediaSection
+              label="My Role"
+              title="What I owned"
+              image={project.myRoleImage}
+              side={sideFor(!!project.myRoleImage)}
+            >
+              <p>{project.myRole}</p>
+
+              <ul className="mt-6 space-y-2">
+                {project.myRoleBullets?.map((item: string, i: number) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="text-accent-blue">—</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </MediaSection>
+          )}
+
           <MediaSection
             label="Problem"
             title="What I was solving"
@@ -223,7 +243,7 @@ function ProjectPage() {
             {project.results.length > 0 &&
               typeof project.results[0] === "string" ? (
               <ul className="space-y-2">
-                {project.results.map((r: string, i: number) => (
+                {(project.results as string[]).map((r, i) => (
                   <li key={i} className="flex gap-3">
                     <span className="text-accent-red">→</span>
                     <span>{r}</span>

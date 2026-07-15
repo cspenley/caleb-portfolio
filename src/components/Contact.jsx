@@ -10,7 +10,7 @@ export default function Contact() {
           Let's build <span className="text-accent-red">something.</span>
         </h2>
         <p className="mt-6 max-w-xl text-lg text-muted">
-          I'm looking for full-time automotive engineering roles starting December 2026, and open to summer 2026 internships in the meantime.
+          I'm looking for full-time automotive engineering roles starting January 2027.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">
