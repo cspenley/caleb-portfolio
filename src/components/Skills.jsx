@@ -6,10 +6,10 @@ export default function Skills() {
   return (
     <section id="skills" className="border-b border-border">
       <div className="mx-auto max-w-[var(--container)] px-6 py-24">
-        <p className="label-mono"><span className="text-accent-red">02</span> / Toolkit</p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">Skills.</h2>
+        <p className="label-mono"><span className="text-accent-red">02</span> / Skills</p>
+        <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">What I bring to the table.</h2>
 
-        <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           {skills.map((group, i) => (
             <motion.div
               key={group.category}

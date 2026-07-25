@@ -1,55 +1,50 @@
-// ============================================================
-// EXPERIENCE — edit / add entries here. Newest first.
-//
-// GALLERY (optional): add a `gallery` array of image paths to any entry
-// to show a photo grid under its bullet list. Leave it as an empty array
-// (or remove the field entirely) and no gallery renders for that entry —
-// same behavior as the project galleries.
-// ============================================================
-
 export const experience = [
   {
     company: "Mercedes-Benz U.S. International (MBUSI)",
-    position: "Process Engineer, Co-op",
-    dates: "Aug 2025 - Dec 2025",
     location: "Vance, AL",
-    bullets: [
-      "Designed an ergonomic trailer-hitch assembly tool for the GLE line, moving the station from a red to a green ergonomic score.",
-      "Restructured the end-of-line CAN diagnostic process, consolidating 14 steps to 9 and cutting average diagnostic time ~30%.",
-      "Ran the shop-floor trials, trained operators across three shifts, and wrote the updated standard work.",
+    positions: [
+      {
+        position: "Emissions & Testing Engineer, Co-op",
+        dates: "May 2026 - Aug 2026",
+        bullets: ["Operated chassis dynamometers for international emissions testing while authoring audit-ready procedures and knowledge-transfer documentation ahead of a departmental shutdown."],
+        gallery: [],
+      },
+      {
+        position: "Process Engineer, Co-op",
+        dates: "Aug 2025 - Dec 2025",
+        bullets: ["Worked directly alongside line operators during a new vehicle launch to design a synchronized hand-start tool, optimize assembly line balancing, and facilitate daily engineering KPI meetings."],
+        gallery: [],
+      },
     ],
-    gallery: [],
-  },
-  {
-    company: "Terps Racing — Formula SAE",
-    position: "Vehicle Dynamics Engineer",
-    dates: "Aug 2024 — Oct 2025",
-    location: "University of Maryland",
-    bullets: [
-      "Owned the bellcrank redesign for the 2026 car, achieving a 38% mass reduction at FoS 2.4.",
-      "Ran FEA and hand calculations against Adams Car load cases to validate suspension components.",
-      "Machined final parts in-house on 3-axis CNC.",
-    ],
-    gallery: [],
   },
   {
     company: "Terrapin Works",
-    position: "Technician",
-    dates: "Feb 2025 — Present",
-    location: "University of Maryland",
-    bullets: [
-      "Supported design-for-manufacturing reviews for student and faculty projects across CNC, 3D printing, and laser services.",
-      "Ran the additive manufacturing shop floor and trained new operators on print prep and post-processing.",
+    location: "College Park, MD",
+    positions: [
+      {
+        position: "Technician",
+        dates: "Feb 2025 — Present",
+        bullets: ["Guided student and research teams on DFM while directly fabricating over 1,200 prototypes using FDM, SLA, and SLS 3D printing technologies.",],
+        gallery: [],
+      },
     ],
-    // Example — add your real files to public/images/experience/terrapin-works/
-    // and uncomment:
-    // gallery: [
-    //   "/images/experience/terrapin-works/shop-floor.jpg",
-    //   "/images/experience/terrapin-works/print-farm.jpg",
-    // ],
-    gallery: [
-      "/images/experience/tw/brain.png",
-      "/images/experience/tw/skull.png",
+  },
+  {
+    company: "Terps Racing (Formula SAE)",
+    location: "College Park, MD",
+    positions: [
+      {
+        position: "Chassis Engineer",
+        dates: "Aug 2026 — Dec 2026",
+        bullets: ["Coming soon"],
+        gallery: [],
+      },
+      {
+        position: "Vehicle Dynamics Engineer",
+        dates: "Aug 2024 — Oct 2025",
+        bullets: ["Designed, analyzed, and validated a lightweight bellcrank suspension system using SOLIDWORKS, FEA, and MATLAB, achieving a 28% weight reduction while supporting a top-25 competition finish."],
+        gallery: [],
+      },
     ],
   },
 ];

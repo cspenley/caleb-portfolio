@@ -6,7 +6,6 @@ import Skills from "../components/Skills";
 import ProjectGrid from "../components/ProjectGrid";
 import Timeline from "../components/Timeline";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +46,6 @@ function Home() {
         <Timeline />
         <Contact />
       </main>
-      <Footer />
     </div>
   );
 }

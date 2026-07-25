@@ -7,7 +7,7 @@ export default function Contact() {
       <div className="mx-auto max-w-[var(--container)] px-6 py-24">
         <p className="label-mono"><span className="text-accent-red">05</span> / Contact</p>
         <h2 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-          Let's build <span className="text-accent-red">something.</span>
+          Looking for an <span className="text-accent-red">engineer?</span>
         </h2>
         <p className="mt-6 max-w-xl text-lg text-muted">
           I'm looking for full-time automotive engineering roles starting January 2027.
@@ -27,14 +27,6 @@ export default function Contact() {
             className="border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-foreground"
           >
             LinkedIn ↗
-          </a>
-          <a
-            href={site.github}
-            target="_blank"
-            rel="noreferrer"
-            className="border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-foreground"
-          >
-            GitHub ↗
           </a>
         </div>
       </div>

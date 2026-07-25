@@ -12,47 +12,56 @@ export default function Timeline() {
         </h2>
 
         <ol className="mt-12 space-y-12 border-l border-border pl-8 md:pl-12">
-          {experience.map((job, i) => (
+          {experience.map((entry, i) => (
             <motion.li
-              key={job.company}
+              key={entry.company}
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="relative"
-            >
+              className={`relative ${i > 0 ? "border-t border-border pt-12" : ""}`}            >
               {/* Dot */}
               <span className="absolute -left-[calc(2rem+5px)] top-2 h-2.5 w-2.5 rounded-full bg-accent-red md:-left-[calc(3rem+5px)]" />
 
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-xl font-semibold">{job.position}</h3>
-                <p className="label-mono">{job.dates}</p>
-              </div>
-              <p className="mt-1 text-accent-blue">{job.company}</p>
-              <p className="text-sm text-muted">{job.location}</p>
+              <h3 className="text-xl font-semibold">{entry.company}</h3>
+              <p className="text-sm text-muted">{entry.location}</p>
 
-              <ul className="mt-4 space-y-2 text-muted">
-                {job.bullets.map((b, k) => (
-                  <li key={k} className="flex gap-3">
-                    <span className="text-accent-red">—</span>
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Gallery — only renders if this entry has images. */}
-              {job.gallery && job.gallery.length > 0 && (
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {job.gallery.map((src, k) => (
-                    <img
+              {/* One block per position at this company */}
+              <div className="mt-6 space-y-8">
+                {entry.positions.map((pos, k) => (
+                  <div
                     key={k}
-                    src={src}
-                    alt=""
-                    className="h-64 w-auto border border-border object-contain"
-                    />
-                    ))}
+                    className={k > 0 ? "pt-6" : ""}
+                  >
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <p className="text-sm">{pos.position}</p>
+                      <p className="label-mono">{pos.dates}</p>
                     </div>
-                  )}
+
+                    <ul className="mt-4 space-y-2 text-muted">
+                      {pos.bullets.map((b, j) => (
+                        <li key={j} className="flex gap-3">
+                          <span className="text-accent-blue">—</span>
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {pos.gallery && pos.gallery.length > 0 && (
+                      <div className="mt-6 flex flex-wrap gap-3">
+                        {pos.gallery.map((src, g) => (
+                          <img
+                            key={g}
+                            src={src}
+                            alt=""
+                            className="h-64 w-auto border border-border object-contain"
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </motion.li>
           ))}
         </ol>

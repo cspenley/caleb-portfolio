@@ -24,8 +24,8 @@ export default function ProjectGrid() {
       <div className="mx-auto max-w-[var(--container)] px-6 py-24">
         <div className="flex items-end justify-between gap-6">
           <div className="min-w-0">
-            <p className="label-mono"><span className="text-accent-red">03</span> / Selected work</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">Projects.</h2>
+            <p className="label-mono"><span className="text-accent-red">03</span> / Projects</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">What I've worked on.</h2>
           </div>
 
           <div className="flex items-center gap-3 shrink-0">

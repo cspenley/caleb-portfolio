@@ -34,7 +34,7 @@ export default function Hero() {
               href={site.resumeUrl} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-foreground"
             >
-              Download resume
+              Open resume ↗
             </a>
           </div>
         </motion.div>

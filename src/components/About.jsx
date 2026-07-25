@@ -9,7 +9,7 @@ export default function About() {
         <div>
           <p className="label-mono"><span className="text-accent-red">01</span> / About</p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-            Building things that get made.
+            Hi, I'm Caleb.
           </h2>
         </div>
 

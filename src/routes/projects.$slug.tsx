@@ -3,7 +3,6 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { projects, getProject } from "../data/projects";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Media from "../components/Media";
 
 export const Route = createFileRoute("/projects/$slug")({
@@ -162,14 +161,16 @@ function ProjectPage() {
 
         {/* Body */}
         <div className="mx-auto max-w-[var(--container)] px-6 py-16">
-          <MediaSection
-            label="Overview"
-            title="What it is"
-            image={project.overviewImage}
-            side={sideFor(!!project.overviewImage)}
-          >
-            <p>{project.overview}</p>
-          </MediaSection>
+          {project.overview && (
+            <MediaSection
+              label="Overview"
+              title="What it is"
+              image={project.overviewImage}
+              side={sideFor(!!project.overviewImage)}
+            >
+              <p>{project.overview}</p>
+            </MediaSection>
+          )}
 
           {project.myRole && (
             <MediaSection
@@ -200,21 +201,23 @@ function ProjectPage() {
             <p>{project.problem}</p>
           </MediaSection>
 
-          <MediaSection
-            label="Constraints"
-            title="Boundaries of the design"
-            image={project.constraintsImage}
-            side={sideFor(!!project.constraintsImage)}
-          >
-            <ul className="space-y-2">
-              {project.constraints.map((c: string, i: number) => (
-                <li key={i} className="flex gap-3">
-                  <span className="text-accent-blue">—</span>
-                  <span>{c}</span>
-                </li>
-              ))}
-            </ul>
-          </MediaSection>
+          {project.constraints?.length > 0 && (
+            <MediaSection
+              label="Constraints"
+              title="Boundaries of the design"
+              image={project.constraintsImage}
+              side={sideFor(!!project.constraintsImage)}
+            >
+              <ul className="space-y-2">
+                {project.constraints.map((c: string, i: number) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="text-accent-blue">—</span>
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </MediaSection>
+          )}
 
           <MediaSection
             label="Process"
@@ -231,7 +234,20 @@ function ProjectPage() {
             image={project.solutionImage}
             side={sideFor(!!project.solutionImage)}
           >
-            <p>{project.solution}</p>
+            <p className="whitespace-pre-line">
+              {project.solution}
+            </p>
+
+            {project.pdf && (
+              <a
+                href={project.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-foreground"
+              >
+                Open technical instructions ↗
+              </a>
+            )}
           </MediaSection>
 
           <MediaSection
@@ -272,17 +288,18 @@ function ProjectPage() {
             )}
           </MediaSection>
 
-          <MediaSection
-            label="Lessons"
-            title="What I'd do differently"
-            image={project.lessonsImage}
-            side={sideFor(!!project.lessonsImage)}
-          >
-            <p className="whitespace-pre-line">
-              {project.lessons}
-            </p>
-          </MediaSection>
-
+          {project.lessons && (
+            <MediaSection
+              label="Lessons"
+              title="What I'd do differently"
+              image={project.lessonsImage}
+              side={sideFor(!!project.lessonsImage)}
+            >
+              <p className="whitespace-pre-line">
+                {project.lessons}
+              </p>
+            </MediaSection>
+          )}
           {/* Gallery — each entry can be a photo or an .mp4 path */}
           {project.gallery && project.gallery.length > 0 && (
             <div className="border-t border-border py-12">
@@ -314,7 +331,6 @@ function ProjectPage() {
         </div>
       </article>
 
-      <Footer />
     </div>
   );
 }

@@ -8,12 +8,11 @@ export const site = {
   intro:
     "Mechanical engineering student at the University of Maryland building cars, tools, and processes for the shop floor.",
   bio:
-    "I'm a mechanical engineering student at the University of Maryland (Dec 2026) focused on automotive design and manufacturing. My work sits at the intersection of CAD, FEA, and the shop floor — I care most about parts that are easy to make and easy to service.",
-  education: "B.S. Mechanical Engineering, University of Maryland — December 2026",
-  interests: "Motorsport, vehicle dynamics, manufacturing systems, and anything with a driveline.",
+    "I'm a mechanical engineering student at the University of Maryland (Dec 2026) focused on automotive design and manufacturing. I balance design, fabrication, and clear communication to turn user needs into engineering solutions. I enjoy working on projects that require both technical and creative problem-solving.",
+  education: "B.S. Mechanical Engineering, University of Maryland (December 2026)",
+  interests: "Motorsport, digital photography, camping & hiking, and basketball.",
   email: "cpenley@umd.edu",
   linkedin: "https://www.linkedin.com/in/caleb-penley",
-  github: "https://github.com/",
   resumeUrl: "/caleb-penley-resume.pdf", // Replace public/resume.pdf with your file.
   navLinks: [
     { label: "About", href: "#about" },

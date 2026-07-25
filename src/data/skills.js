@@ -4,23 +4,19 @@
 
 export const skills = [
   {
-    category: "CAD",
-    items: ["SolidWorks", "CATIA V5", "Fusion 360", "GD&T"],
-  },
-  {
-    category: "Manufacturing",
-    items: ["CNC Machining", "Sheet Metal", "3D Printing", "Composites", "DFM / DFA"],
+    category: "Design",
+    items: ["SOLIDWORKS", "Siemens NX", "2D Drawing Creation"],
   },
   {
     category: "Analysis",
-    items: ["FEA (Static & Modal)", "Hand Calcs", "Tolerance Stacks", "Adams Car"],
+    items: ["FEA (Stress & Fatigue)", "Hand Calculations", "Data Analysis (MATLAB)", "GD&T"],
   },
   {
-    category: "Programming",
-    items: ["Python", "MATLAB", "C (embedded)", "Git"],
+    category: "Fabrication",
+    items: ["Additive Manufacturing (FDM, SLA, SLS)", "Manual Machining (Lathe, Drill Press, Bandsaw)", "Laser Cutting", "Arc & Gas Welding"],
   },
   {
-    category: "Tools",
-    items: ["Vector CANoe", "LabVIEW", "Excel / VBA", "Linux"],
+    category: "Communication",
+    items: ["Excel (Data Modeling)", "Technical Documentation", "Design Reviews & Presentations"],
   },
 ];
