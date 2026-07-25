@@ -1,6 +1,7 @@
 // Landing / hero section.
 import { motion } from "framer-motion";
 import { site } from "../data/site";
+import { withBase } from "../lib/utils";
 
 export default function Hero() {
   return (
@@ -57,8 +58,7 @@ export default function Hero() {
           <div className="absolute inset-0 border border-border" />
           <div className="absolute -right-3 -top-3 h-full w-full border border-accent-red/50" />
           <img
-            src="/images/profile.jpg"
-            alt="Caleb Penley"
+            src={withBase("/images/profile.jpg")} alt="Caleb Penley"
             className="relative h-full w-full object-cover grayscale"
           />
         </motion.div>

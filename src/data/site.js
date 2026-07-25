@@ -2,6 +2,7 @@
 // SITE CONFIG — your name, links, and top-level copy live here.
 // ============================================================
 
+import { withBase } from "../lib/utils";
 export const site = {
   name: "Caleb Penley",
   title: "Automotive Engineer",
@@ -13,7 +14,7 @@ export const site = {
   interests: "Motorsport, digital photography, camping & hiking, and basketball.",
   email: "cpenley@umd.edu",
   linkedin: "https://www.linkedin.com/in/caleb-penley",
-  resumeUrl: "/caleb-penley-resume.pdf", // Replace public/resume.pdf with your file.
+  resumeUrl: withBase("/caleb-penley-resume.pdf"), // Replace public/resume.pdf with your file.
   navLinks: [
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
