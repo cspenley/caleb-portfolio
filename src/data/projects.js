@@ -216,29 +216,27 @@ export const projects = [
     slug: "photography",
     title: "Digital Photography",
     tagline: "Portfolio of photography work.",
-    cover: "",
+    type: "gallery",
+    cover: "/images/photography/amg.jpg",
     tech: ["Canon EOS M6 Mark II", "Lightroom", "Photoshop"],
-    overview:
-      "",
-    overviewImage: "",
-    problem:
-      "",
-    problemImage: "",
-    constraints: [],
-    constraintsImage: "",
-    process:
-      "",
-    processImage: "",
-    solution:
-      "",
-    solutionImage: "",
-    results: [
-      "",
+
+    gallery: [
+      "/images/photography/amg.jpg",
+      "/images/photography/blue-porsche.jpg",
+      "/images/photography/bronco.png",
+      "/images/photography/ferarri-wheel.jpg",
+      "/images/photography/ferarri.png",
+      "/images/photography/halloween.jpg",
+      "/images/photography/mustang.jpg",
+      "/images/photography/nsx-front.png",
+      "/images/photography/nsx.jpg",
+      "/images/photography/orange-porsche-racing.png",
+      "/images/photography/orange-porsche-top.jpg",
+      "/images/photography/orange-porsche.png",
+      "/images/photography/porsche-dog.png",
+      "/images/photography/red-porsche.jpg",
+      "/images/photography/three-porsches.jpg"
     ],
-    resultsImage: "",
-    lessons:
-      "",
-    gallery: []
   },
 ];
 

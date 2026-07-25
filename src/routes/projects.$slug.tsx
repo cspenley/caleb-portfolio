@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { projects, getProject } from "../data/projects";
 import Navbar from "../components/Navbar";
 import Media from "../components/Media";
+import Photography from "../components/Photography";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -110,6 +111,19 @@ function ProjectPage() {
   const { project } = Route.useLoaderData();
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length];
+  if (project.type === "gallery") {
+    return (
+      <div className="min-h-screen">
+        <Navbar />
+
+        <article>
+          <div className="px-6 py-12">
+            <Photography images={project.gallery} />
+          </div>
+        </article>
+      </div>
+    );
+  }
 
   // Alternates left/right, but only advances for sections that actually
   // have media — sections without one don't break the rhythm.
