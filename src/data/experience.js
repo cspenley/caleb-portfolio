@@ -33,12 +33,12 @@ export const experience = [
     company: "Terps Racing (Formula SAE)",
     location: "College Park, MD",
     positions: [
-      {
-        position: "Chassis Engineer",
-        dates: "Aug 2026 — Dec 2026",
-        bullets: ["Coming soon"],
-        gallery: [],
-      },
+      // {
+      //   position: "Chassis Engineer",
+      //   dates: "Aug 2026 — Dec 2026",
+      //   bullets: ["Coming soon"],
+      //   gallery: [],
+      // },
       {
         position: "Vehicle Dynamics Engineer",
         dates: "Aug 2024 — Oct 2025",
