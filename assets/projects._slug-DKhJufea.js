@@ -1,0 +1,1 @@
+import{c as e,i as t}from"./index-e_AlVPKL.js";var n=e(),r=()=>(0,n.jsx)(`div`,{className:`flex min-h-screen items-center justify-center`,children:(0,n.jsxs)(`p`,{className:`label-mono`,children:[`Project not found. `,(0,n.jsx)(t,{to:`/`,className:`text-accent-red`,children:`Back home →`})]})});export{r as notFoundComponent};
