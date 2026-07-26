@@ -63,8 +63,7 @@ export const projects = [
     lessons:
       "First time designing for strength, I expected topology optimization to hand me a finished part, but designing for CNC manufacturability mattered more than the optimized shape.",
     lessonsImage: withBase("/images/projects/fsae-bellcranks/topology.png"),
-    gallery: ["/videos/projects/fsae-bellcranks/testing.mp4", "/videos/projects/fsae-bellcranks/testing-2.mp4", "/videos/projects/fsae-bellcranks/testing-3.mp4"
-    ],
+    gallery: [withBase("/videos/projects/fsae-bellcranks/testing.mp4"), withBase("/videos/projects/fsae-bellcranks/testing-2.mp4"), withBase("/videos/projects/fsae-bellcranks/testing-3.mp4")]
   },
   {
     slug: "mbusi-trailer-hitch-tool",
