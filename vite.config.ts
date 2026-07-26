@@ -13,6 +13,7 @@ export default defineConfig({
       prerender: {
         enabled: true,
         crawlLinks: true,
+        filter: ({ path }) => !/\.(pdf|mp4|jpg|jpeg|png|webp|gif|svg)$/i.test(path),
       },
     }),
     viteReact(),
