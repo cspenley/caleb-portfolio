@@ -1,0 +1,1 @@
+import{c as e}from"./index-BgtsDaKJ.js";var t=e(),n=({error:e})=>(0,t.jsx)(`div`,{className:`flex min-h-screen items-center justify-center`,children:(0,t.jsxs)(`p`,{className:`label-mono`,children:[`Something went wrong: `,e.message]})});export{n as errorComponent};
