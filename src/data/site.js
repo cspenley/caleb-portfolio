@@ -5,7 +5,7 @@
 import { withBase } from "../lib/utils";
 export const site = {
   name: "Caleb Penley",
-  title: "Automotive Engineer",
+  title: "Mechanical Engineer",
   intro:
     "Mechanical engineering student at the University of Maryland building cars, tools, and processes for the shop floor.",
   bio:

@@ -236,6 +236,12 @@ export const projects = [
       withBase("/images/photography/porsche-dog.png"),
       withBase("/images/photography/red-porsche.jpg"),
       withBase("/images/photography/three-porsches.jpg")
+      withBase("/images/photography/astons.jpg")
+      withBase("/images/photography/ferarri-beach.jpg")
+      withBase("/images/photography/gtr.jpg")
+      withBase("/images/photography/mazda.jpg")
+      withBase("/images/photography/mclaren.jpg")
+      withBase("/images/photography/singer-green.jpg")
     ],
   },
 ];
